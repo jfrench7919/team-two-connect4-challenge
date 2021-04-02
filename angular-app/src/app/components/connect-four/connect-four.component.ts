@@ -54,6 +54,7 @@ export class ConnectFourComponent implements OnInit {
       }
     });
     column.playerChips.reverse();
+    this.playCount++;
     this.endTurn();
   }
 
