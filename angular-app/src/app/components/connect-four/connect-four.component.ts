@@ -45,10 +45,8 @@ export class ConnectFourComponent implements OnInit {
     this.playCount = 0;
   }
 
-  addChip(column: number) {
+  addChip(column: BoardColumn) {
 
-    this.playCount++;
-    this.endTurn();
   }
 
   endTurn() {
