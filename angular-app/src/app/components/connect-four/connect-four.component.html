@@ -1,4 +1,4 @@
-<div class="h5">Connect-4</div>
+<div class="h5 p-4">Connect-4</div>
 <div class="d-flex flex-inline p-4">
   <div *ngFor="let column of board" class="d-flex flex-column">
     <div *ngIf="column.playerChips[0].colorOfSpace === neutralColor" type="button" class="btn btn-primary"
@@ -12,6 +12,8 @@
   </div>
 </div>
 
-<div *ngIf="winner" class="h5">Winner</div>
+<div *ngIf="winner" class="h5 p-4">Winner</div>
 
-<div *ngIf="draw" class="h5">Draw</div>
+<div *ngIf="draw" class="h5 p-4">Draw</div>
+
+<div type="button" class="btn btn-primary m-4" (click)="startGame()">Start new game</div>
