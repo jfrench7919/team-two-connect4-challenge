@@ -92,96 +92,94 @@ export class ConnectFourComponent implements OnInit {
       let col = this.board[i];
       for (let j = 0; j < this.boardRows; j++) {
         let row = col.playerChips[j];
-        if (row.colorOfSpace !== checkColor) {
-          break;
-        }
+        if (row.colorOfSpace === checkColor) {
+          // Right Horizonal
+          if (i < this.boardColumns - 3) {
+            const isRH =
+              this.board[i + 1].playerChips[j].colorOfSpace === checkColor &&
+              this.board[i + 2].playerChips[j].colorOfSpace === checkColor &&
+              this.board[i + 3].playerChips[j].colorOfSpace === checkColor;
 
-        // Right Horizonal
-        if (i < this.boardColumns - 3) {
-          const isRH =
-            this.board[i + 1].playerChips[j].colorOfSpace === checkColor &&
-            this.board[i + 2].playerChips[j].colorOfSpace === checkColor &&
-            this.board[i + 3].playerChips[j].colorOfSpace === checkColor;
-
-          if (isRH) {
-            return true;
+            if (isRH) {
+              return true;
+            }
           }
-        }
-        // Left Horizontal
-        if (i >= 3) {
-          const isLH =
-            this.board[i - 1].playerChips[j].colorOfSpace === checkColor &&
-            this.board[i - 2].playerChips[j].colorOfSpace === checkColor &&
-            this.board[i - 3].playerChips[j].colorOfSpace === checkColor;
+          // Left Horizontal
+          if (i >= 3) {
+            const isLH =
+              this.board[i - 1].playerChips[j].colorOfSpace === checkColor &&
+              this.board[i - 2].playerChips[j].colorOfSpace === checkColor &&
+              this.board[i - 3].playerChips[j].colorOfSpace === checkColor;
 
-          if (isLH) {
-            return true;
+            if (isLH) {
+              return true;
+            }
           }
-        }
-        // Upper Vertical
-        if (j >= 3) {
-          const isUV =
-            col.playerChips[j - 1].colorOfSpace === checkColor &&
-            col.playerChips[j - 2].colorOfSpace === checkColor &&
-            col.playerChips[j - 3].colorOfSpace === checkColor;
+          // Upper Vertical
+          if (j >= 3) {
+            const isUV =
+              col.playerChips[j - 1].colorOfSpace === checkColor &&
+              col.playerChips[j - 2].colorOfSpace === checkColor &&
+              col.playerChips[j - 3].colorOfSpace === checkColor;
 
-          if (isUV) {
-            return true;
+            if (isUV) {
+              return true;
+            }
           }
-        }
-        // Lower Vertical
-        if (j < this.boardRows - 3) {
-          const isLV =
-            col.playerChips[j + 1].colorOfSpace === checkColor &&
-            col.playerChips[j + 2].colorOfSpace === checkColor &&
-            col.playerChips[j + 3].colorOfSpace === checkColor;
+          // Lower Vertical
+          if (j < this.boardRows - 3) {
+            const isLV =
+              col.playerChips[j + 1].colorOfSpace === checkColor &&
+              col.playerChips[j + 2].colorOfSpace === checkColor &&
+              col.playerChips[j + 3].colorOfSpace === checkColor;
 
-          if (isLV) {
-            return true;
+            if (isLV) {
+              return true;
+            }
           }
-        }
-        // Diagonal Down Right
-        if (i < this.boardColumns - 3 && j < this.boardRows - 3) {
-          const isDDR =
-            this.board[i + 1].playerChips[j + 1].colorOfSpace === checkColor &&
-            this.board[i + 2].playerChips[j + 2].colorOfSpace === checkColor &&
-            this.board[i + 3].playerChips[j + 3].colorOfSpace === checkColor;
+          // Diagonal Down Right
+          if (i < this.boardColumns - 3 && j < this.boardRows - 3) {
+            const isDDR =
+              this.board[i + 1].playerChips[j + 1].colorOfSpace === checkColor &&
+              this.board[i + 2].playerChips[j + 2].colorOfSpace === checkColor &&
+              this.board[i + 3].playerChips[j + 3].colorOfSpace === checkColor;
 
-          if (isDDR) {
-            return true;
+            if (isDDR) {
+              return true;
+            }
           }
-        }
-        // Diagonal Down Left
-        if (i >= 3 && j < this.boardRows - 3) {
-          const isDDL =
-            this.board[i - 1].playerChips[j + 1].colorOfSpace === checkColor &&
-            this.board[i - 2].playerChips[j + 2].colorOfSpace === checkColor &&
-            this.board[i - 3].playerChips[j + 3].colorOfSpace === checkColor;
+          // Diagonal Down Left
+          if (i >= 3 && j < this.boardRows - 3) {
+            const isDDL =
+              this.board[i - 1].playerChips[j + 1].colorOfSpace === checkColor &&
+              this.board[i - 2].playerChips[j + 2].colorOfSpace === checkColor &&
+              this.board[i - 3].playerChips[j + 3].colorOfSpace === checkColor;
 
-          if (isDDL) {
-            return true;
+            if (isDDL) {
+              return true;
+            }
           }
-        }
-        // Diagonal Up Right
-        if (i < this.boardColumns - 3 && j >= 3) {
-          const isDUR =
-            this.board[i + 1].playerChips[j - 1].colorOfSpace === checkColor &&
-            this.board[i + 2].playerChips[j - 2].colorOfSpace === checkColor &&
-            this.board[i + 3].playerChips[j - 3].colorOfSpace === checkColor;
+          // Diagonal Up Right
+          if (i < this.boardColumns - 3 && j >= 3) {
+            const isDUR =
+              this.board[i + 1].playerChips[j - 1].colorOfSpace === checkColor &&
+              this.board[i + 2].playerChips[j - 2].colorOfSpace === checkColor &&
+              this.board[i + 3].playerChips[j - 3].colorOfSpace === checkColor;
 
-          if (isDUR) {
-            return true;
+            if (isDUR) {
+              return true;
+            }
           }
-        }
-        // Diagonal Up Left
-        if (i >= 3 && j >= 3) {
-          const isDUL =
-            this.board[i - 1].playerChips[j - 1].colorOfSpace === checkColor &&
-            this.board[i - 2].playerChips[j - 2].colorOfSpace === checkColor &&
-            this.board[i - 3].playerChips[j - 3].colorOfSpace === checkColor;
+          // Diagonal Up Left
+          if (i >= 3 && j >= 3) {
+            const isDUL =
+              this.board[i - 1].playerChips[j - 1].colorOfSpace === checkColor &&
+              this.board[i - 2].playerChips[j - 2].colorOfSpace === checkColor &&
+              this.board[i - 3].playerChips[j - 3].colorOfSpace === checkColor;
 
-          if (isDUL) {
-            return true;
+            if (isDUL) {
+              return true;
+            }
           }
         }
       }
