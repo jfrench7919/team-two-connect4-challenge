@@ -37,8 +37,8 @@ export class ConnectFourComponent implements OnInit {
     });
   }
 
-  addChip(column: number) {
-    
+  addChip(column: BoardColumn) {
+
   }
 
   endTurn() {
