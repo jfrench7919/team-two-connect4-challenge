@@ -46,7 +46,24 @@ export class ConnectFourComponent implements OnInit {
   }
 
   addChip(column: BoardColumn) {
+    let found = false;
+    column.playerChips.reverse().forEach(chip => {
+      if (chip.colorOfSpace === this.neutralColor && !found) {
+        chip.colorOfSpace = this.getPlayerColor();
+        found = true;
+      }
+    });
+    column.playerChips.reverse();
+    this.endTurn();
+  }
 
+  getPlayerColor(): string {
+    if (this.isPlayerOne) {
+      return this.playerOneColor;
+    }
+    else {
+      return this.playerTwoColor;
+    }
   }
 
   endTurn() {

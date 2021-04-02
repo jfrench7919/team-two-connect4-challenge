@@ -5,18 +5,22 @@
   display: inline-block;
 }
 
-.chipWhite{
+.white{
   background-color: white;
 }
 
-.chipYellow{
+.yellow{
   background-color: yellow;
 }
 
-.chipRed{
+.red{
   background-color: red;
 }
 
 .board{
   background-color: blue;
+}
+
+.btnEmptySpace{
+  height: 38px;
 }
