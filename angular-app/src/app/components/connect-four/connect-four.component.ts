@@ -10,10 +10,18 @@ export class ConnectFourComponent implements OnInit {
 
   isPlayerOne: boolean = false;
   board: BoardColumn[] = [];
+  winner: boolean = false;
+  draw: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  startGame() { }
+  addChip() { }
+  endTurn() { }
+  checkBoardForWin() { }
 
 }
 
