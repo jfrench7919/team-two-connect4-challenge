@@ -3,6 +3,7 @@
   <div *ngFor="let column of board" class="d-flex flex-column">
     <div *ngIf="column.playerChips[0].colorOfSpace === neutralColor" type="button" class="btn btn-primary"
       (click)="addChip(column)">Add</div>
+    <div *ngIf="column.playerChips[0].colorOfSpace !== neutralColor" class="btnEmptySpace"></div>
     <div class="d-flex flex-column board">
       <div *ngFor="let chip of column.playerChips">
         <div class="chip m-2" [ngClass]="chip.colorOfSpace"></div>
