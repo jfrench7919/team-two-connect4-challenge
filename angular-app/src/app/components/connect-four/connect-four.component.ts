@@ -13,15 +13,47 @@ export class ConnectFourComponent implements OnInit {
   winner: boolean = false;
   draw: boolean = false;
 
+  readonly playerOneColor = 'red';
+  readonly playerTwoColor = 'yellow';
+
   constructor() { }
 
   ngOnInit(): void {
+    for (var i = 0; i < 7; i++) {
+      this.board.push(new BoardColumn());
+      for (var j = 0; j < 6; j++) {
+        const chip = new PlayerChip()
+        chip.colorOfSpace = 'white';
+        this.board[i].playerChips[j] = chip;
+      }
+    }
   }
 
-  startGame() { }
-  addChip() { }
-  endTurn() { }
-  checkBoardForWin() { }
+  startGame() {
+    this.board.forEach(col => {
+      col.playerChips.forEach((row) => {
+        row.colorOfSpace = 'white';
+      });
+    });
+  }
+
+  addChip(column: number) {
+    
+  }
+
+  endTurn() {
+    this.checkBoardForWin();
+    this.isPlayerOne = !this.isPlayerOne;
+  }
+
+  checkBoardForWin() {
+    // Check verticals
+
+    // Check diagonals
+
+    // Check Horizonals
+  }
+
 
 }
 
