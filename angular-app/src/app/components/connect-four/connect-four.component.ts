@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerChip } from './models/player-chip';
 
 @Component({
   selector: 'app-connect-four',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnectFourComponent implements OnInit {
 
+  isPlayerOne: boolean = false;
+  board: BoardColumn[] = [];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+}
+
+export class BoardColumn {
+  playerChips: PlayerChip[] = []
 }
